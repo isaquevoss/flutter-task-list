@@ -1,9 +1,9 @@
 class TaskGroup{
   int id;
   String description;
-  List<Task> tasks;
+  // List<Task> tasks;
 
-  TaskGroup(this.id, this.description, this.tasks);
+  TaskGroup(this.id, this.description );
 }
 
 class Task {
