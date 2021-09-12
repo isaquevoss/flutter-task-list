@@ -30,7 +30,7 @@ class _TaskListViewState extends State<TaskListView> {
 
     });
   }
-  getTasksFields() {
+  List<Widget> getTasksFields() {
     List<Widget> fields = [];
     this.tasks.forEach((element) {
       fields.add(Card(
@@ -41,8 +41,21 @@ class _TaskListViewState extends State<TaskListView> {
   }
 
   Widget build(BuildContext context) {
-    return ListView(
-      children: getTasksFields(),
+    return ListView.builder(
+      itemCount: this.tasks.length,
+      itemBuilder: (context,index){
+        return Card(
+          child: CheckboxListTile(
+            value: this.tasks[index].checked,
+            onChanged: (value){
+              setState(() {
+                widget.tasks[index].checked = value!;
+              });
+            },
+            title: Text( this.tasks[index].description ),
+          ),
+        );
+      },
     );
   }
 }
