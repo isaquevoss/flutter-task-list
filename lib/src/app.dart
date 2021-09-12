@@ -10,12 +10,19 @@ class TaskListApp extends StatefulWidget {
 }
 
 class _TaskListAppState extends State<TaskListApp> {
+
   List<TaskGroup> tasks = List<TaskGroup>.generate(10, (index) => TaskGroup(0, 'New Description'));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('My task list'),),
       body: TaskListView(tasks: this.tasks),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        tasks.add(TaskGroup(0, 'Works fine'));
+        setState(() {});
+      },
+      ),
     );
   }
 }

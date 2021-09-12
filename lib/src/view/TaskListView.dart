@@ -7,14 +7,16 @@ class TaskListView extends StatelessWidget {
 
   final List<TaskGroup> tasks;
 
+  getTasksFields() {
+    List<Widget> fields = [];
+    tasks.forEach((element) {
+      fields.add(Text(element.description));
+    });
+    return fields;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      ListTile(
-        title: Text('teste'),
-      )
-
-    ],);
+    return ListView(children: getTasksFields(),);
   }
 }
