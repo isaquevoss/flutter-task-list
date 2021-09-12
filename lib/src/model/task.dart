@@ -9,7 +9,9 @@ class TaskGroup{
   int id;
   String description;
   List<Task> tasks = List.empty();
-  TaskGroup(this.id, this.description);
-}
+  bool checked = false;
+
+  TaskGroup(this.id, this.description );
+ }
 
 
